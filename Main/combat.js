@@ -13,6 +13,7 @@ let playerAttack;
 let enemyHealth = 100;
 let enemyDamage = 20;
 let diceValue;
+let isEvade = false;
 
 // DOM Elements
 const playerHealthText = document.querySelector('#playerHealth');
@@ -28,61 +29,62 @@ const stun = document.querySelector('#stun');
 const battleMenu = document.querySelector('#inBattleMenu');
 const diceRoll = document.querySelector('#diceRoll');
 
-// function rollD6() {
-//     let min = 1;
-//     let max = 6;
-//     diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-//     diceValueText.innerText = diceValue;
-// }
+// Initial State
+enemyHealthText.innerText = enemyHealth;
+enemyDamageText.innerText = enemyDamage;
+atk.disabled = false;
+eva.disabled = false;
 
-// function rollD8() {
-//     let min = 1;
-//     let max = 8;
-//     diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-//     diceValueText.innerText = diceValue;
-// }
-
-// function rollD12() {
-//     let min = 1;
-//     let max = 12;
-//     diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-//     diceValueText.innerText = diceValue;
-// }
-
-// function rollEvadeDie () {
-//     let min = 2;
-//     let max = 4;
-//     diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-//     diceValueText.innerText = diceValue;
-// }
-
-// Define the dice configurations
 const diceTypes = [
-    { name: 'd6', sides: 6, min: 1 },
-    { name: 'd8', sides: 8, min: 1 },
-    { name: 'd12', sides: 12, min: 1 },
-    { name: 'evade', sides: 4, min: 2 },
+    { name: 'D6', min: 1, max: 6 },
+    { name: 'D8', min: 1, max: 8 },
+    { name: 'D12', min: 1, max: 12 },
+    { name: 'Evade Dice', min: 2, max: 4 },
 ];
 
-// Dice class that uses the config
-class Dice {
-    constructor(diceValue, diceTypes) {
-        this.diceValue = diceValue;
-        this.diceTypes = diceTypes;
+// Roll the dice to get random number between 1 and 6
+function rollTheDice(sides) {
+    let min = diceTypes[sides].min;
+    let max = diceTypes[sides].max;
+    diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
+    diceValueText.innerText = diceValue;
+}
+
+function attack() {
+    if (enemyHealth > 0 && playerHealth > 0) {
+        playerAttack = diceValue * 10;
+        enemyHealth -= playerAttack;
+        if (enemyHealth <= 0) {
+            enemyHealthText.innerText = 0;
+        } else {
+            enemyHealthText.innerText = enemyHealth;
+        }
     }
 
-    roll(typeName) {
-        const config = this.diceTypes.find((die) => die.name === typeName);
-        if (!config) {
-            console.error(`Dice type "${typeName}" not found.`);
-            return;
-        }
+    atk.disabled = true;
+    eva.disabled = true;
+}
 
-        const { sides, min } = config;
-        const value = Math.floor(Math.random() * (sides - min + 1)) + min;
-        this.diceValue.innerText = value;
-        return value;
+function enemyAttack() {
+    if (enemyHealth > 0 && playerHealth > 0) {
+        if (isEvade === true) {
+            enemyDamage = 0;
+            isEvade = false;
+        } else {
+            enemyDamage = diceValue * 10;
+            playerHealth -= enemyDamage;
+            playerHealthText.innerText = playerHealth;
+        }
     }
 }
 
-console.log(Dice.roll('d6'), Dice.roll('d8'));
+function evade() {
+    if (diceValue == 2 || 3 || 4) {
+        isEvade = true;
+    } else {
+        isEvade = false;
+    }
+
+    atk.disabled = true;
+    eva.disabled = true;
+}
