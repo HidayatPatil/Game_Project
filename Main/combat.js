@@ -32,7 +32,7 @@ enemyDamageText.innerText = enemyDamage;
 atk.disabled = false;
 eva.disabled = false;
 powerUp.disabled = true;
-stun.disabled = false;
+stun.disabled = true;
 playerDice = 0; // player dice type
 // store
 
@@ -50,23 +50,46 @@ const diceTypes = [
 ];
 
 function oppDice() {
+	diceValueText.innerText = 0;
 	let min = 1;
 	let max = 6;
-	oppDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-	diceValueText.innerText = oppDiceValue;
+	diceValueText.style.backgroundColor = "red";
+
+	// After a short delay, show the dice value
+	setTimeout(() => {
+		oppDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
+		diceValueText.innerText = oppDiceValue;
+
+		setTimeout(() => {
+			diceValueText.innerText = 0;
+			diceValueText.style.backgroundColor = ""; // Reset color
+		}, 2000);
+	}, 1000); // Delay dice roll for 300ms (adjust as needed)
 }
 
-// Roll the dice to get random number basis dice type
 function rollTheDice(sides) {
+	diceValueText.innerText = 0;
 	let min = diceTypes[sides].min;
 	let max = diceTypes[sides].max;
-	playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-	diceValueText.innerText = playerDiceValue;
+
+	diceValueText.style.backgroundColor = "bisque";
+
+	setTimeout(() => {
+		playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
+		diceValueText.innerText = playerDiceValue;
+	}, 800); // Delay dice roll
 }
 
 //Button functions
 atk.onclick = attack;
 eva.onclick = evade;
+
+// HealthBar Status
+function updateHealthBar(health, maxHealth, barElementId) {
+	const bar = document.getElementById(barElementId);
+	const healthPercent = Math.max(health / maxHealth, 0) * 100;
+	bar.style.width = `${healthPercent}%`;
+}
 
 //player attack function
 function attack() {
@@ -76,6 +99,7 @@ function attack() {
 	setTimeout(() => {
 		playerAttack = playerDiceValue * 10;
 		enemyHealth -= playerAttack;
+		updateHealthBar(enemyHealth, 100, "enemy-health-bar");
 		if (enemyHealth <= 0) {
 			enemyHealthText.innerText = 0;
 			winBattle();
@@ -99,6 +123,7 @@ function enemyTurn() {
 		}
 
 		playerHealth -= actualDamage;
+		updateHealthBar(playerHealth, 100, "player-health-bar");
 		playerHealthText.innerText = playerHealth;
 
 		if (playerHealth <= 0) {
