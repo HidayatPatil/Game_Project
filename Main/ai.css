@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+body {
+	background-color: black;
+	color: white;
+	font-family: "VT323", monospace;
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	color: white;
+	font-size: 32px;
+	margin: 16px 0;
+	text-align: center;
+}
+
+.battle-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 800px;
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+#goHome {
+	height: 32px;
+	cursor: pointer;
+}
+
+/* ------------------------ Battle Scene ------------------------ */
+.battle-scene {
+	height: 500px;
+	width: 800px;
+	display: grid;
+	grid-template-rows: repeat(12, 1fr);
+	background-color: black;
+	border: 4px solid white;
+	box-sizing: border-box;
+}
+
+/* ------------------------ Action Visual ------------------------ */
+.action-visual {
+	grid-row: 1/10;
+	position: relative;
+	background-color: black;
+	border-bottom: 2px solid white;
+}
+
+#diceValue {
+	background-color: black;
+	color: white;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	bottom: 20px;
+	right: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 18px;
+	border: 2px solid white;
+	box-shadow: 0 0 5px white;
+	image-rendering: pixelated;
+}
+
+
+/* ------------------------ Enemy & Player ------------------------ */
+.enemy-side {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	position: absolute;
+	top: 40px;
+	right: 40px;
+}
+
+.enemy-icon {
+	background-color: white;
+	height: 150px;
+	width: 150px;
+	border: 2px solid black;
+}
+
+.player-side {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	align-items: end;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+.player-icon {
+	background-color: white;
+	height: 150px;
+	width: 150px;
+	border: 2px solid black;
+}
+
+/* ------------------------ Interface ------------------------ */
+.action-interface {
+	grid-row: 10/13;
+	background-color: black;
+	border-top: 2px solid white;
+	display: flex;
+	justify-content: space-between;
+	padding: 16px;
+	box-sizing: border-box;
+}
+
+.interface_left,
+.interface_right {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.interface_left {
+	width: 200px;
+}
+
+.interface_right {
+	width: 96px;
+}
+
+/* Buttons */
+.left_top-actions,
+.left_bottom-actions {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	justify-content: space-between;
+}
+
+button {
+	width: 100%;
+	padding: 8px 12px;
+	background-color: black;
+	color: white;
+	font-family: "VT323", monospace;
+	font-size: 20px;
+	border: 2px solid white;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+button:hover {
+	background-color: white;
+	color: black;
+}
+
+/* ------------------------ Health Bar ------------------------ */
+.health-bar-container {
+	width: 200px;
+	height: 20px;
+	background-color: #5a0000; /* Dark red background */
+	border: 2px solid white;
+	border-radius: 2px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.health-bar {
+	height: 100%;
+	background-color: #ff1a1a; /* Bright red fill */
+	width: 100%; /* You can dynamically adjust this via JS */
+	transition: width 0.3s ease-in-out;
+}
+
+.health-bar-text {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	top: 0;
+	left: 0;
+	line-height: 20px;
+	text-shadow: 1px 1px 0 black;
+}

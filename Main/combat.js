@@ -53,32 +53,43 @@ function oppDice() {
 	diceValueText.innerText = 0;
 	let min = 1;
 	let max = 6;
-	diceValueText.style.backgroundColor = "red";
 
-	// After a short delay, show the dice value
+	diceValueText.style.backgroundColor = "#8b0000";
+
 	setTimeout(() => {
 		oppDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
 		diceValueText.innerText = oppDiceValue;
 
 		setTimeout(() => {
 			diceValueText.innerText = 0;
-			diceValueText.style.backgroundColor = ""; // Reset color
-		}, 2000);
-	}, 1000); // Delay dice roll for 300ms (adjust as needed)
+			diceValueText.style.backgroundColor = "black";
+		}, 1200);
+	}, 600);
 }
+
 
 function rollTheDice(sides) {
 	diceValueText.innerText = 0;
 	let min = diceTypes[sides].min;
 	let max = diceTypes[sides].max;
 
-	diceValueText.style.backgroundColor = "bisque";
+	let diceColor;
+	switch (sides) {
+		case 0: diceColor = "#2222aa"; break;
+		case 1: diceColor = "#22aa22"; break;
+		case 2: diceColor = "#aa2222"; break;
+		case 3: diceColor = "#aaaa22"; break;
+		default: diceColor = "#555555"; break;
+	}
+	diceValueText.style.backgroundColor = diceColor;
 
 	setTimeout(() => {
 		playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
 		diceValueText.innerText = playerDiceValue;
-	}, 800); // Delay dice roll
+	}, 600);
 }
+
+
 
 //Button functions
 atk.onclick = attack;
@@ -105,22 +116,16 @@ function attack() {
 			winBattle();
 		} else {
 			enemyHealthText.innerText = enemyHealth;
-			setTimeout(enemyTurn, 2000);
+			setTimeout(enemyTurn, 1000);
 		}
-	}, 1000);
+	}, 800);
 }
 
 function enemyTurn() {
 	oppDice();
 	setTimeout(() => {
-		let actualDamage;
-
-		if (isEvade === true) {
-			actualDamage = 0;
-			isEvade = false;
-		} else {
-			actualDamage = oppDiceValue * enemyDamage;
-		}
+		let actualDamage = isEvade ? 0 : oppDiceValue * enemyDamage;
+		isEvade = false;
 
 		playerHealth -= actualDamage;
 		updateHealthBar(playerHealth, 100, "player-health-bar");
@@ -133,20 +138,24 @@ function enemyTurn() {
 
 		atk.disabled = false;
 		eva.disabled = false;
-	}, 1000);
+	}, 800);
 }
 
+
 function evade() {
-	rollTheDice(0);
-	if (playerDiceValue === 2 || playerDiceValue === 3 || playerDiceValue === 4) {
-		isEvade = true;
-	} else {
-		isEvade = false;
-	}
-	setTimeout(enemyTurn, 1000);
 	atk.disabled = true;
 	eva.disabled = true;
+	rollTheDice(0);  // Roll dice first
+
+	setTimeout(() => {
+		// Evaluate evade condition after same delay as attack
+		isEvade = (playerDiceValue === 2 || playerDiceValue === 3 || playerDiceValue === 4);
+		setTimeout(enemyTurn, 1000);  // Matching pacing with attack transition to enemy
+	}, 1000);  // Delay same as attack to allow dice value to appear
 }
+
+
+
 
 function gameOver() {
 	if (enemyHealth <= 0 || playerHealth <= 0) {
