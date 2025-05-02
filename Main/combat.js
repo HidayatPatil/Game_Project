@@ -23,7 +23,7 @@ const stun = document.querySelector("#stun");
 // const battleMenu = document.querySelector('#inBattleMenu');
 // const diceRoll = document.querySelector('#diceRoll');
 
-// Initial State
+// Initial States
 playerHealthText.innerText = playerHealth;
 playerDamageText.innerText = playerDamage;
 enemyHealthText.innerText = enemyHealth;
