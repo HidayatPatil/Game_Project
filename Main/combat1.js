@@ -52,7 +52,7 @@ function oppDice() {
 	let min = 1;
 	let max = 6;
 
-	diceValueText.style.backgroundColor = "#8b0000";
+	diceValueText.style.backgroundColor = "#e63946";
 
 	setTimeout(() => {
 		oppDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -60,7 +60,7 @@ function oppDice() {
 
 		setTimeout(() => {
 			diceValueText.innerText = 0;
-			diceValueText.style.backgroundColor = "black";
+			diceValueText.style.backgroundColor = "bisque";
 		}, 1200);
 	}, 600);
 }
@@ -69,16 +69,7 @@ function rollTheDice(sides) {
 	diceValueText.innerText = 0;
 	let min = diceTypes[sides].min;
 	let max = diceTypes[sides].max;
-
-	let diceColor;
-	switch (sides) {
-		case 0: diceColor = "#2222aa"; break;
-		case 1: diceColor = "#22aa22"; break;
-		case 2: diceColor = "#aa2222"; break;
-		case 3: diceColor = "#aaaa22"; break;
-		default: diceColor = "#555555"; break;
-	}
-	diceValueText.style.backgroundColor = diceColor;
+	diceValueText.style.backgroundColor = "#a8dadc";
 
 	setTimeout(() => {
 		playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
