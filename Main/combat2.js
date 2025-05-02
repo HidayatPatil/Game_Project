@@ -9,6 +9,8 @@ let playerDiceValue;
 let oppDiceValue;
 let playerDice;
 
+document.querySelectorElementRemove('#player-health-bar').remove();
+
 // DOM Elements
 const playerHealthText = document.querySelector('#playerHealth');
 const playerDamageText = document.querySelector('#playerDefense');
