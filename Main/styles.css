@@ -60,9 +60,15 @@ h1 {
 }
 
 .enemy-icon {
+	display: flex;
 	background-color: rgb(75, 35, 35);
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
+}
+
+.enemy-Image {
+	height: 100%;
+	width: 100%;
 }
 
 .player-side {

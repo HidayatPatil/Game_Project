@@ -63,29 +63,50 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Press Start 2P', monospace;
+	font-family: "Press Start 2P", monospace;
 	font-size: 18px;
 	border: 2px solid white;
 	box-shadow: 0 0 5px white;
 	image-rendering: pixelated;
 }
 
-
 /* ------------------------ Enemy & Player ------------------------ */
 .enemy-side {
 	display: flex;
 	flex-direction: row;
-	gap: 24px;
 	position: absolute;
 	top: 40px;
 	right: 40px;
 }
 
+.enemy-stats {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	align-items: end;
+}
+
 .enemy-icon {
-	background-color: white;
-	height: 150px;
-	width: 150px;
-	border: 2px solid black;
+	height: 220px;
+	width: 220px;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.enemy-Image {
+	height: 100%;
+	width: 100%;
+	animation: float 2s linear infinite;
 }
 
 .player-side {
@@ -186,4 +207,30 @@ button:hover {
 	left: 0;
 	line-height: 20px;
 	text-shadow: 1px 1px 0 black;
+}
+
+/* ---------------------Hit Animation ---------------------------- */
+@keyframes shake {
+	0% {
+		transform: translateX(0);
+	}
+	20% {
+		transform: translateX(-5px);
+	}
+	40% {
+		transform: translateX(5px);
+	}
+	60% {
+		transform: translateX(-5px);
+	}
+	80% {
+		transform: translateX(5px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.shake {
+	animation: shake 0.3s;
 }
