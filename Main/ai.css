@@ -361,4 +361,31 @@ button:disabled {
 .ovrlbtn {
     width: 70%;
 }
+
+
+/* -----------------------Start Screen-------------------------- */
+#start_screen {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    padding-top: 120px;
+    width: 800px;
+    height: 450px;
+	background-color: black;
+    border: 4px solid white;
+    position: absolute;
+}
+
+#start-button {
+    width: 500px;
+}
+
+#start_screen.hidden {
+	display: none;
+}
+
+
+
+
 /* ------------------------ End of CSS ------------------------ */

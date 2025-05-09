@@ -56,6 +56,8 @@ const powerUp = document.querySelector("#powerUp");
 const stun = document.querySelector("#stun");
 const diceUp = document.querySelector("#new-dice-button");
 const dmgUp = document.querySelector("#dmg-up-button");
+const startScreen = document.getElementById("start_screen");
+const startButton = document.getElementById("start-button");
 
 // Initial State
 playerHealthText.innerText = playerHealth;
@@ -70,6 +72,18 @@ powerUp.disabled = true;
 stun.disabled = true;
 playerDice = 0; // player dice type
 
+// startBtn.onclick = startGame;
+
+// // Start Game function
+// function startGame() {
+// 	document.getElementById("start_screen").classList.add("hidden");
+// }
+
+
+
+startButton.addEventListener("click", () => {
+	startScreen.classList.add("hidden");
+});
 
 function oppDice() {
 	diceValueText.innerText = 0;
@@ -223,7 +237,6 @@ function winBattle() {
 			document.getElementById("powerup-overlay").classList.remove("hidden"); // SHOW overlay
 			loadNextEnemy();
 		}, 1000);
-		
 	}
 }
 
@@ -240,10 +253,10 @@ function playerChooseDmg() {
 
 function loadNextEnemy() {
 	if (playerHealth <= 80) {
-	playerHealth += 20;
-	playerHealthText.innerText = playerHealth;
-	updateHealthBar(playerHealth, 100, "player-health-bar");
-}
+		playerHealth += 20;
+		playerHealthText.innerText = playerHealth;
+		updateHealthBar(playerHealth, 100, "player-health-bar");
+	}
 
 	currentEnemyIndex++;
 
@@ -275,4 +288,3 @@ function loadNextEnemy() {
 	// Optional: remove the downed animation class if still present
 	enemyImage.classList.remove("downed");
 }
-
