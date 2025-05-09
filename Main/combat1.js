@@ -45,24 +45,24 @@ const diceTypes = [
 ];
 
 const enemyType = [
-	{
-		name: "boss1",
-		health: 100,
-		damage: 10,
-		img: "images/boss1.png",
-	},
-	{
-		name: "boss2",
-		health: 120,
-		damage: 12,
-		img: "images/boss2.png",
-	},
-	{
-		name: "boss3",
-		health: 150,
-		damage: 15,
-		img: "images/boss3.png",
-	},
+    {
+        name: 'boss1',
+        health: 100,
+        damage: 10,
+        img: 'images/boss1.png',
+    },
+    {
+        name: 'boss2',
+        health: 120,
+        damage: 12,
+        img: 'images/boss2.png',
+    },
+    {
+        name: 'boss3',
+        health: 150,
+        damage: 15,
+        img: 'images/boss3.png',
+    },
 ];
 
 function oppDice() {
@@ -76,23 +76,23 @@ function oppDice() {
         oppDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
         diceValueText.innerText = oppDiceValue;
 
-		setTimeout(() => {
-			diceValueText.innerText = 0;
-			diceValueText.style.backgroundColor = "black";
-		}, 1200);
-	}, 600);
+        setTimeout(() => {
+            diceValueText.innerText = 0;
+            diceValueText.style.backgroundColor = 'black';
+        }, 1200);
+    }, 600);
 }
 
 function rollTheDice(sides) {
-	diceValueText.innerText = 0;
-	let min = diceTypes[sides].min;
-	let max = diceTypes[sides].max;
-	diceValueText.style.backgroundColor = "#black";
+    diceValueText.innerText = 0;
+    let min = diceTypes[sides].min;
+    let max = diceTypes[sides].max;
+    diceValueText.style.backgroundColor = '#black';
 
-	setTimeout(() => {
-		playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
-		diceValueText.innerText = playerDiceValue;
-	}, 600);
+    setTimeout(() => {
+        playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
+        diceValueText.innerText = playerDiceValue;
+    }, 600);
 }
 
 // Button functions
@@ -108,25 +108,25 @@ function updateHealthBar(health, maxHealth, barElementId) {
 }
 
 function enemyHitAnimation() {
-	enemyImage.classList.add("shake");
+    enemyImage.classList.add('shake');
 
-	// Remove the class after the animation ends so it can be reused
-	setTimeout(() => {
-		enemyImage.classList.remove("shake");
-	}, 300); // should match animation duration
+    // Remove the class after the animation ends so it can be reused
+    setTimeout(() => {
+        enemyImage.classList.remove('shake');
+    }, 300); // should match animation duration
 }
 
 function enemyDeathAnimation() {
-	enemyImage.classList.add("downed");
+    enemyImage.classList.add('downed');
 }
 
 function playerHitAnimation() {
-	playerImage.classList.add("shake");
+    playerImage.classList.add('shake');
 
-	// Remove the class after the animation ends so it can be reused
-	setTimeout(() => {
-		playerImage.classList.remove("shake");
-	}, 300); // should match animation duration
+    // Remove the class after the animation ends so it can be reused
+    setTimeout(() => {
+        playerImage.classList.remove('shake');
+    }, 300); // should match animation duration
 }
 
 // Player attack function
@@ -137,10 +137,10 @@ function attack() {
     setTimeout(() => {
         playerAttack = playerDiceValue * playerDamage;
         enemyHealth -= playerAttack;
-      enemyHitAnimation(); // Play hit animation
+        enemyHitAnimation(); // Play hit animation
         updateHealthBar(enemyHealth, 100, 'enemy-health-bar');
         if (enemyHealth <= 0) {
-          enemyDeathAnimation(); 
+            enemyDeathAnimation();
             enemyHealthText.innerText = 0;
             winBattle();
         } else {
@@ -170,7 +170,7 @@ function enemyTurn() {
         } else {
             // Failed parry or normal enemy attack
             playerHealth -= actualDamage;
-          playerHitAnimation(); // Play hit animation
+            playerHitAnimation(); // Play hit animation
             updateHealthBar(playerHealth, 100, 'player-health-bar');
             playerHealthText.innerText = playerHealth;
 
