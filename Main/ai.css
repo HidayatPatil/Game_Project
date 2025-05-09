@@ -21,7 +21,7 @@ h1 {
 
 .battle-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     width: 800px;
     height: 60px;
@@ -97,7 +97,7 @@ h1 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-3px);
+        transform: translateY(-4px);
     }
     100% {
         transform: translateY(0);
@@ -107,7 +107,7 @@ h1 {
 .enemy-Image {
     height: 100%;
     width: 100%;
-    animation: float 2s linear infinite;
+    animation: float 1s linear infinite;
 }
 
 .player-side {
@@ -193,6 +193,13 @@ button {
 button:hover {
     background-color: white;
     color: black;
+}
+
+button:disabled {
+	background-color: rgb(28, 28, 28);
+	color: rgb(97, 97, 97);
+	border-color: rgb(99, 99, 99);
+	cursor: not-allowed;
 }
 
 /* ------------------------ Health Bar ------------------------ */
@@ -307,22 +314,32 @@ button:hover {
     margin: 0;
     font-size: 3.5em;
     text-align: center;
+	font-weight: 500;
 }
 
 .new-dice {
+	background-color: black;
+    border: 4px solid white;
+    box-sizing: border-box;
     grid-column: 2 / span 4;
     grid-row: 4 / span 8;
     border-radius: 10px;
-    background-color: tan;
     /* width: 300px;
     height: 250px; */
 }
 
+.diceUpgrade, .dmgUpgrade {
+	width: 200px;
+	height: 200px;
+}
+
 .dmg-up {
+	background-color: black;
+    border: 4px solid white;
+    box-sizing: border-box;
     grid-column: 8 / span 4;
     grid-row: 4 / span 8;
     border-radius: 10px;
-    background-color: tan;
     /* width: 300px;
     height: 250px; */
 }
@@ -336,22 +353,12 @@ button:hover {
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 20px;
+    justify-content: space-between;
+    padding: 20px 0;
     align-items: center;
 }
 
 .ovrlbtn {
-    background-color: #4caf50; /* Green */
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 22px;
-    cursor: pointer;
-    border-radius: 12px;
-    width: 60%;
-    height: 50px;
+    width: 70%;
 }
 /* ------------------------ End of CSS ------------------------ */

@@ -138,7 +138,7 @@ function playerHitAnimation() {
 
 // Player attack function
 function attack() {
-	rollTheDice(0);
+	rollTheDice(playerDice);
 	atk.disabled = true;
 	par.disabled = true;
 	setTimeout(() => {
@@ -239,6 +239,12 @@ function playerChooseDmg() {
 }
 
 function loadNextEnemy() {
+	if (playerHealth <= 80) {
+	playerHealth += 20;
+	playerHealthText.innerText = playerHealth;
+	updateHealthBar(playerHealth, 100, "player-health-bar");
+}
+
 	currentEnemyIndex++;
 
 	if (currentEnemyIndex >= enemyType.length) {
