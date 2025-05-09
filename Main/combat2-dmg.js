@@ -1,9 +1,9 @@
 // Game State
 let playerHealth = 100;
-let playerDamage = 10;
+let playerDamage = 12;
 let playerAttack;
 let isParry = false;
-let enemyHealth = 10;
+let enemyHealth = 120;
 let enemyDamage = 10;
 let playerDiceValue;
 let oppDiceValue;
@@ -223,13 +223,6 @@ function winBattle() {
 }
 
 function playerChooseDice() {
+    playerDice += 1;
     document.getElementById('powerup-overlay').classList.add('hidden');
-    document.location.href = 'battle2-dice.html';
-    document.getElementById('powerup-overlay').classList.add('hidden');
-}
-
-function playerChooseDmg() {
-    document.getElementById('powerup-overlay').classList.add('hidden');
-    document.location.href = 'battle2-dmg.html';
-    document.location.reload();
 }
