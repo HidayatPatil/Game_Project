@@ -3,7 +3,7 @@ let playerHealth = 100;
 let playerDamage = 10;
 let playerAttack;
 let isParry = false;
-let enemyHealth = 100;
+let enemyHealth = 10;
 let enemyDamage = 10;
 let playerDiceValue;
 let oppDiceValue;
@@ -20,6 +20,8 @@ const atk = document.querySelector('#attack');
 const par = document.querySelector('#parry'); // <--- renamed from 'eva'
 const powerUp = document.querySelector('#powerUp');
 const stun = document.querySelector('#stun');
+const diceUpD8 = document.querySelector('#new-dice-button');
+const dmgUp1 = document.querySelector('#dmg-up-button');
 
 // Initial State
 playerHealthText.innerText = playerHealth;
@@ -33,11 +35,6 @@ par.disabled = false;
 powerUp.disabled = true;
 stun.disabled = true;
 playerDice = 0; // player dice type
-
-// store
-stun.onclick = () => {
-    playerDice = 3;
-};
 
 // dice types
 const diceTypes = [
@@ -80,6 +77,7 @@ function rollTheDice(sides) {
 // Button functions
 atk.onclick = attack;
 par.onclick = parry;
+diceUpD8.onclick = playerChooseDice;
 
 // HealthBar Status
 function updateHealthBar(health, maxHealth, barElementId) {
@@ -94,7 +92,7 @@ function attack() {
     atk.disabled = true;
     par.disabled = true;
     setTimeout(() => {
-        playerAttack = playerDiceValue * 10;
+        playerAttack = playerDiceValue * playerDamage;
         enemyHealth -= playerAttack;
         updateHealthBar(enemyHealth, 100, 'enemy-health-bar');
         if (enemyHealth <= 0) {
@@ -169,7 +167,14 @@ function winBattle() {
     if (enemyHealth <= 0) {
         setTimeout(() => {
             alert('You Win!');
-            window.location.href = 'combat.html';
+            document
+                .getElementById('powerup-overlay')
+                .classList.remove('hidden'); // SHOW overlay
         }, 1000);
     }
+}
+
+function playerChooseDice() {
+    playerDice += 1;
+    document.getElementById('powerup-overlay').classList.add('hidden');
 }

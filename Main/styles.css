@@ -1,158 +1,158 @@
 body {
-	background-color: rgb(17, 17, 17);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 0 auto;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 auto;
 }
 
 h1 {
-	color: white;
+    color: white;
 }
 
 .battle-header {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 800px;
-	height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 60px;
 }
 
 #goHome {
-	height: 32px;
+    height: 32px;
 }
 
 .battle-scene {
-	height: 500px;
-	width: 800px;
-	display: grid;
-	grid-template-rows: repeat(12, 1fr);
+    height: 500px;
+    width: 800px;
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
 }
 
 /* -------------------------------------------------------------------- */
 
 .action-visual {
-	grid-row: 1/10;
-	background-color: white;
-	position: relative;
+    grid-row: 1/10;
+    background-color: white;
+    position: relative;
 }
 
 #diceValue {
-	background-color: bisque;
-	width: 60px;
-	height: 60px;
-	position: absolute;
-	bottom: 20px;
-	right: 45px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    background-color: bisque;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 20px;
+    right: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .enemy-side {
-	display: flex;
-	flex-direction: row;
-	gap: 24px;
-	position: absolute;
-	top: 40px;
-	right: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
 }
 
 .enemy-icon {
-	display: flex;
-	background-color: rgb(75, 35, 35);
-	height: 200px;
-	width: 200px;
+    display: flex;
+    background-color: rgb(75, 35, 35);
+    height: 200px;
+    width: 200px;
 }
 
 .enemy-Image {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .player-side {
-	display: flex;
-	flex-direction: row;
-	gap: 24px;
-	align-items: end;
-	position: absolute;
-	bottom: 20px;
-	left: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: end;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .player-icon {
-	background-color: rgb(44, 110, 168);
-	height: 150px;
-	width: 150px;
+    background-color: rgb(44, 110, 168);
+    height: 150px;
+    width: 150px;
 }
 
 /* -------------------------------------------------------------------- */
 
 .action-interface {
-	grid-row: 10/13;
-	background-color: gray;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding: 24px;
+    grid-row: 10/13;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px;
 }
 
 .interface_left {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	gap: 16px;
-	width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 16px;
+    width: 200px;
 }
 
 .left_top-actions {
-	display: flex;
-	flex-direction: row;
-	gap: 8px;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
 }
 
 .left_top-actions button {
-	width: 100%;
+    width: 100%;
 }
 
 .left_bottom-actions {
-	display: flex;
-	flex-direction: row;
-	gap: 8px;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
 }
 
 .left_bottom-actions button {
-	width: 100%;
+    width: 100%;
 }
 
 .interface_right {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	gap: 16px;
-	width: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 16px;
+    width: 96px;
 }
 
 /* ---------------------------HealthBar Stat--------------------------- */
 
 .health-bar-container {
-	width: 200px; /* Total width of the bar */
-	height: 20px;
-	background-color: rgb(255, 203, 179);
-	border: 2px solid rgb(255, 203, 179);
-	border-radius: 4px;
-	overflow: hidden;
-	margin-bottom: 10px;
+    width: 200px; /* Total width of the bar */
+    height: 20px;
+    background-color: rgb(255, 203, 179);
+    border: 2px solid rgb(255, 203, 179);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .health-bar {
-	height: 100%;
-	background-color: rgb(255, 98, 0);
-	width: 100%; /* Starts at full health */
-	transition: width 0.3s ease-in-out;
+    height: 100%;
+    background-color: rgb(255, 98, 0);
+    width: 100%; /* Starts at full health */
+    transition: width 0.3s ease-in-out;
 }
 
 .health-bar-text {
@@ -163,4 +163,104 @@ h1 {
     font-weight: bold;
     color: rgb(33, 28, 20);
     margin: 0 12px;
+}
+
+/* ------------------------ Powerup Overlay ------------------------ */
+
+#powerup-overlay {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9); /* darker transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 800px;
+    height: 500px;
+    border: 4px solid white;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.powerup {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.pwr-up-text {
+    grid-column: 3 / span 8;
+    grid-row: 2;
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    margin: 0;
+}
+
+.new-dice,
+.dmg-up {
+    grid-column: span 5;
+    grid-row: 4 / span 8;
+    margin: 10px;
+    background-color: black;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.new-dice:hover,
+.dmg-up:hover {
+    background-color: white;
+    color: black;
+}
+
+.dice-text {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ovrlbtn {
+    margin-top: 16px;
+    width: 70%;
+    padding: 8px 0;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ovrlbtn:hover {
+    background-color: white;
+    color: black;
 }
