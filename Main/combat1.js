@@ -72,18 +72,11 @@ powerUp.disabled = true;
 stun.disabled = true;
 playerDice = 0; // player dice type
 
-// startBtn.onclick = startGame;
-
-// // Start Game function
-// function startGame() {
-// 	document.getElementById("start_screen").classList.add("hidden");
-// }
-
-
-
+// Start game function
 startButton.addEventListener("click", () => {
 	startScreen.classList.add("hidden");
 });
+
 
 function oppDice() {
 	diceValueText.innerText = 0;
