@@ -1,113 +1,113 @@
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-	background-color: black;
-	color: white;
-	font-family: "VT323", monospace;
-	font-size: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 0;
-	margin: 0;
+    background-color: black;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 h1 {
-	color: white;
-	font-size: 32px;
-	margin: 16px 0;
-	text-align: center;
+    color: white;
+    font-size: 32px;
+    margin: 16px 0;
+    text-align: center;
 }
 
 .battle-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 800px;
-	height: 60px;
-	margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 60px;
+    margin-bottom: 10px;
 }
 
 #goHome {
-	height: 32px;
-	cursor: pointer;
+    height: 32px;
+    cursor: pointer;
 }
 
 /* ------------------------ Battle Scene ------------------------ */
 .battle-scene {
-	height: 500px;
-	width: 800px;
-	display: grid;
-	grid-template-rows: repeat(12, 1fr);
-	background-color: black;
-	border: 4px solid white;
-	box-sizing: border-box;
+    height: 500px;
+    width: 800px;
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    background-color: black;
+    border: 4px solid white;
+    box-sizing: border-box;
 }
 
 /* ------------------------ Action Visual ------------------------ */
 .action-visual {
-	grid-row: 1/10;
-	position: relative;
-	background-color: black;
-	border-bottom: 2px solid white;
+    grid-row: 1/10;
+    position: relative;
+    background-color: black;
+    border-bottom: 2px solid white;
 }
 
 #diceValue {
-	background-color: black;
-	color: white;
-	width: 60px;
-	height: 60px;
-	position: absolute;
-	bottom: 20px;
-	right: 45px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: "Press Start 2P", monospace;
-	font-size: 18px;
-	border: 2px solid white;
-	box-shadow: 0 0 5px white;
-	image-rendering: pixelated;
+    background-color: black;
+    color: white;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 20px;
+    right: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    image-rendering: pixelated;
 }
 
 
 /* ------------------------ Enemy & Player ------------------------ */
 .enemy-side {
-	display: flex;
-	flex-direction: row;
-	position: absolute;
-	top: 40px;
-	right: 40px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 40px;
+    right: 40px;
 }
 
 .enemy-stats {
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	align-items: end;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: end;
 }
 
 .enemy-icon {
-	height: 220px;
-	width: 220px;
+    height: 220px;
+    width: 220px;
 }
 
 @keyframes float {
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-3px);
-	}
-	100% {
-		transform: translateY(0);
-	}
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .enemy-Image {
-	height: 100%;
-	width: 100%;
-	animation: float 2s linear infinite;
+    height: 100%;
+    width: 100%;
+    animation: float 2s linear infinite;
 }
 
 .player-side {
@@ -145,111 +145,111 @@ h1 {
 
 /* ------------------------ Interface ------------------------ */
 .action-interface {
-	grid-row: 10/13;
-	background-color: black;
-	border-top: 2px solid white;
-	display: flex;
-	justify-content: space-between;
-	padding: 16px;
-	box-sizing: border-box;
+    grid-row: 10/13;
+    background-color: black;
+    border-top: 2px solid white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .interface_left,
 .interface_right {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .interface_left {
-	width: 200px;
+    width: 200px;
 }
 
 .interface_right {
-	width: 96px;
+    width: 96px;
 }
 
 /* Buttons */
 .left_top-actions,
 .left_bottom-actions {
-	display: flex;
-	flex-direction: row;
-	gap: 8px;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
 }
 
 button {
-	width: 100%;
-	padding: 8px 12px;
-	background-color: black;
-	color: white;
-	font-family: "VT323", monospace;
-	font-size: 20px;
-	border: 2px solid white;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-	background-color: white;
-	color: black;
+    background-color: white;
+    color: black;
 }
 
 /* ------------------------ Health Bar ------------------------ */
 .health-bar-container {
-	width: 200px;
-	height: 20px;
-	background-color: #5a0000; /* Dark red background */
-	border: 2px solid white;
-	border-radius: 2px;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 10px;
+    width: 200px;
+    height: 20px;
+    background-color: #5a0000; /* Dark red background */
+    border: 2px solid white;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .health-bar {
-	height: 100%;
-	background-color: #ff1a1a; /* Bright red fill */
-	width: 100%; /* You can dynamically adjust this via JS */
-	transition: width 0.3s ease-in-out;
+    height: 100%;
+    background-color: #ff1a1a; /* Bright red fill */
+    width: 100%; /* You can dynamically adjust this via JS */
+    transition: width 0.3s ease-in-out;
 }
 
 .health-bar-text {
-	position: absolute;
-	width: 100%;
-	text-align: center;
-	font-size: 16px;
-	color: white;
-	top: 0;
-	left: 0;
-	line-height: 20px;
-	text-shadow: 1px 1px 0 black;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    top: 0;
+    left: 0;
+    line-height: 20px;
+    text-shadow: 1px 1px 0 black;
 }
 
 /* ---------------------Hit Animation ---------------------------- */
 @keyframes shake {
-	0% {
-		transform: translateX(0);
-	}
-	20% {
-		transform: translateX(-5px);
-	}
-	40% {
-		transform: translateX(5px);
-	}
-	60% {
-		transform: translateX(-5px);
-	}
-	80% {
-		transform: translateX(5px);
-	}
-	100% {
-		transform: translateX(0);
-	}
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-5px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    60% {
+        transform: translateX(-5px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .shake {
-	animation: shake 0.3s;
+    animation: shake 0.3s;
 }
 
 /* ----------------------------Enemy Kill Animation-------------------- */
@@ -267,3 +267,91 @@ button:hover {
 .downed {
 	animation: downed 0.8s linear forwards;
 }
+/* ------------------------ Powerup Overlay ------------------------ */
+#powerup-overlay {
+    position: absolute;
+    top: 70px;
+
+    background: rgba(0, 0, 0, 0.8); /* dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.powerup {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    background-color: black;
+    border: 4px solid white;
+    height: 500px;
+    width: 800px;
+}
+
+.pwr-up-text {
+    font-family: 'VT323', monospace;
+    grid-column: 4 / span 6;
+    grid-row: 2;
+    color: white;
+    margin: 0;
+    font-size: 3.5em;
+    text-align: center;
+}
+
+.new-dice {
+    grid-column: 2 / span 4;
+    grid-row: 4 / span 8;
+    border-radius: 10px;
+    background-color: tan;
+    /* width: 300px;
+    height: 250px; */
+}
+
+.dmg-up {
+    grid-column: 8 / span 4;
+    grid-row: 4 / span 8;
+    border-radius: 10px;
+    background-color: tan;
+    /* width: 300px;
+    height: 250px; */
+}
+
+.dice-text {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.ovrlbtn {
+    background-color: #4caf50; /* Green */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 60%;
+    height: 50px;
+}
+/* ------------------------ End of CSS ------------------------ */

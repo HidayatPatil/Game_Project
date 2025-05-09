@@ -67,6 +67,32 @@
 				</div>
 			</div>
 		</div>
-		<script src="combat1.js"></script>
-	</body>
+	</div>
+
+	<!-- POWER UP OVERLAY (hidden by default) -->
+	<div id="powerup-overlay" class="hidden">
+		<div class="container">
+			<div class="powerup">
+				<h1 class="pwr-up-text">Power Up</h1>
+				<div class="new-dice card">
+					<button id="new-dice-button" class="ovrlbtn">D8</button>
+				</div>
+				<div class="dmg-up card">
+					<button id="dmg-up-button" class="ovrlbtn">Damage Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<style>
+		#powerup-overlay.hidden {
+			display: none !important;
+		}
+	</style>
+
+
+	<script src="combat1.js"></script>
+</body>
+
 </html>
