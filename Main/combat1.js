@@ -15,6 +15,8 @@ const playerDamageText = document.querySelector("#playerDefense");
 const enemyHealthText = document.querySelector("#enemyHealth");
 const enemyDamageText = document.querySelector("#enemyDamage");
 const diceValueText = document.querySelector("#diceValue");
+const enemyImage = document.querySelector(".enemy-Image");
+const playerImage = document.querySelector(".player-Image");
 
 const atk = document.querySelector("#attack");
 const par = document.querySelector("#parry"); // <--- renamed from 'eva'
@@ -34,6 +36,7 @@ powerUp.disabled = true;
 stun.disabled = true;
 playerDice = 0; // player dice type
 
+
 // store
 stun.onclick = () => {
 	playerDice = 3;
@@ -45,6 +48,27 @@ const diceTypes = [
 	{ name: "D8", min: 1, max: 8 },
 	{ name: "D12", min: 1, max: 12 },
 	{ name: "Parry Dice", min: 88, max: 89 }, // updated name
+];
+
+const enemyType = [
+	{
+		name: "boss1",
+		health: 100,
+		damage: 10,
+		img: "images/boss1.png",
+	},
+	{
+		name: "boss2",
+		health: 120,
+		damage: 12,
+		img: "images/boss2.png",
+	},
+	{
+		name: "boss3",
+		health: 150,
+		damage: 15,
+		img: "images/boss3.png",
+	},
 ];
 
 function oppDice() {
@@ -60,7 +84,7 @@ function oppDice() {
 
 		setTimeout(() => {
 			diceValueText.innerText = 0;
-			diceValueText.style.backgroundColor = "bisque";
+			diceValueText.style.backgroundColor = "black";
 		}, 1200);
 	}, 600);
 }
@@ -69,7 +93,7 @@ function rollTheDice(sides) {
 	diceValueText.innerText = 0;
 	let min = diceTypes[sides].min;
 	let max = diceTypes[sides].max;
-	diceValueText.style.backgroundColor = "#a8dadc";
+	diceValueText.style.backgroundColor = "#black";
 
 	setTimeout(() => {
 		playerDiceValue = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -88,6 +112,28 @@ function updateHealthBar(health, maxHealth, barElementId) {
 	bar.style.width = `${healthPercent}%`;
 }
 
+function enemyHitAnimation() {
+	enemyImage.classList.add("shake");
+
+	// Remove the class after the animation ends so it can be reused
+	setTimeout(() => {
+		enemyImage.classList.remove("shake");
+	}, 300); // should match animation duration
+}
+
+function enemyDeathAnimation() {
+	enemyImage.classList.add("downed");
+}
+
+function playerHitAnimation() {
+	playerImage.classList.add("shake");
+
+	// Remove the class after the animation ends so it can be reused
+	setTimeout(() => {
+		playerImage.classList.remove("shake");
+	}, 300); // should match animation duration
+}
+
 // Player attack function
 function attack() {
 	rollTheDice(0);
@@ -96,8 +142,10 @@ function attack() {
 	setTimeout(() => {
 		playerAttack = playerDiceValue * 10;
 		enemyHealth -= playerAttack;
+		enemyHitAnimation(); // Play hit animation
 		updateHealthBar(enemyHealth, 100, "enemy-health-bar");
 		if (enemyHealth <= 0) {
+			enemyDeathAnimation(); // Play death animation
 			enemyHealthText.innerText = 0;
 			winBattle();
 		} else {
@@ -127,6 +175,7 @@ function enemyTurn() {
 		} else {
 			// Failed parry or normal enemy attack
 			playerHealth -= actualDamage;
+			playerHitAnimation(); // Play hit animation
 			updateHealthBar(playerHealth, 100, "player-health-bar");
 			playerHealthText.innerText = playerHealth;
 

@@ -70,6 +70,7 @@ h1 {
 	image-rendering: pixelated;
 }
 
+
 /* ------------------------ Enemy & Player ------------------------ */
 .enemy-side {
 	display: flex;
@@ -112,18 +113,34 @@ h1 {
 .player-side {
 	display: flex;
 	flex-direction: row;
-	gap: 24px;
 	align-items: end;
 	position: absolute;
-	bottom: 20px;
-	left: 20px;
+	bottom: 0px;
+	left: 0px;
+}
+
+.player-stats {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	align-items: start;
+	margin-bottom: 40px;
 }
 
 .player-icon {
-	background-color: white;
-	height: 150px;
-	width: 150px;
+	height: 220px;
+	width: 220px;
 	border: 2px solid black;
+	position: relative;
+	overflow: hidden;
+}
+
+.player-Image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 300px;
 }
 
 /* ------------------------ Interface ------------------------ */
@@ -233,4 +250,20 @@ button:hover {
 
 .shake {
 	animation: shake 0.3s;
+}
+
+/* ----------------------------Enemy Kill Animation-------------------- */
+@keyframes downed {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(20px); /* downwards */
+		opacity: 0;
+	}
+}
+
+.downed {
+	animation: downed 0.8s linear forwards;
 }
