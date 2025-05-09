@@ -15,6 +15,8 @@ const playerDamageText = document.querySelector('#playerDefense');
 const enemyHealthText = document.querySelector('#enemyHealth');
 const enemyDamageText = document.querySelector('#enemyDamage');
 const diceValueText = document.querySelector('#diceValue');
+const enemyImage = document.querySelector(".enemy-Image");
+const playerImage = document.querySelector(".player-Image");
 
 const atk = document.querySelector('#attack');
 const par = document.querySelector('#parry'); // <--- renamed from 'eva'
