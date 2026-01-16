@@ -58,6 +58,7 @@ const diceUp = document.querySelector('#new-dice-button');
 const dmgUp = document.querySelector('#dmg-up-button');
 const startScreen = document.getElementById('start_screen');
 const startButton = document.getElementById('start-button');
+const battleScene = document.querySelector('.battle-scene');
 
 // Initial State
 playerHealthText.innerText = playerHealth;
@@ -75,6 +76,7 @@ playerDice = 0; // player dice type
 // Start game function
 startButton.addEventListener("click", () => {
 	startScreen.classList.add("hidden");
+	battleScene.classList.remove("hidden");
 });
 
 

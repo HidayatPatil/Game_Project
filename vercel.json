@@ -8,5 +8,25 @@
       "source": "/Main/(.*)",
       "destination": "/Main/$1"
     }
+  ],
+  "headers": [
+    {
+      "source": "/Main/**/*.css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css"
+        }
+      ]
+    },
+    {
+      "source": "/Main/**/*.js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/javascript"
+        }
+      ]
+    }
   ]
 }
