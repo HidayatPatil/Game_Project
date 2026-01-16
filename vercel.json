@@ -11,7 +11,7 @@
   ],
   "headers": [
     {
-      "source": "/Main/**/*.css",
+      "source": "/Main/(.*)\\.css",
       "headers": [
         {
           "key": "Content-Type",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "source": "/Main/**/*.js",
+      "source": "/Main/(.*)\\.js",
       "headers": [
         {
           "key": "Content-Type",
